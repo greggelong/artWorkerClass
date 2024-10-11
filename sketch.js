@@ -41,7 +41,7 @@ function draw() {
   textAlign(CENTER, CENTER);
   noStroke();
   text(label, width / 2, height - 50);
-  speech.speak("I see the"+label)
+  speech.speak("I see the "+label)
 
    
 }
