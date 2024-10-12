@@ -3,6 +3,7 @@ let video;
 let label = "world";
 let speech
 let cnv
+let conf =0;
 
 function preload() {
   classifier = ml5.imageClassifier(
@@ -13,6 +14,7 @@ function preload() {
 function gotResults(results) {
   //console.log(results);
   label = results[0].label;
+  conf = results[0].confidence;
 }
 
 function setup() {
@@ -41,7 +43,11 @@ function draw() {
   textAlign(CENTER, CENTER);
   noStroke();
   text(label, width / 2, height - 50);
+  text("confidence: " + nf(conf, 0, 2), 200, height - 12)
+  if (conf>0.99){
   speech.speak("I see the "+label)
+  } else{
+    speech.speak("I don't see clearly. ")
+  }
 
-   
 }
