@@ -10,7 +10,7 @@ let cbard;
 const wordMap = {
     "steel": "钢铁",
     "bone": "骨头",
-    "art worker": "艺术民工"
+    "art worker": "艺术工人"
   };
 
 
@@ -58,7 +58,7 @@ function draw() {
   fill(255,255,0);
   textAlign(CENTER, CENTER);
   noStroke();
-  text(label, width / 2, height - 50);
+  text(label+" "+wordMap[label], width / 2, height - 50);
   text("confidence: " + nf(conf, 0, 2), 200, height - 12)
   if (conf>0.99){
   speakit()
